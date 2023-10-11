@@ -1,12 +1,12 @@
 package com.example.adil_prooject;
 
-import com.sun.tools.javac.Main;
-import org.apache.catalina.core.ApplicationContext;
-import org.springframework.beans.factory.annotation.Configurable;
+import com.example.adil_prooject.service.ServiceB;
+import com.example.adil_prooject.service.ServiceC;
+import com.example.adil_prooject.service.ServiceD;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import service.ServiceA;
+import com.example.adil_prooject.service.ServiceA;
 
 
 
@@ -16,8 +16,15 @@ public class AdilProojectApplication {
 
 
 		ConfigurableApplicationContext ctx = SpringApplication.run(AdilProojectApplication.class, args);
-		ServiceA serviceAFromConfigurationClass = ctx.getBean("serviceAFromConfigurationClass", ServiceA.class);
-		serviceAFromConfigurationClass.methodServiceA();
+		//ServiceB serviceB = ctx.getBean("myCustomBean2", ServiceB.class);
+		//serviceB.methodB();
+
+		//ServiceC serviceCFromConfigurationClass = ctx.getBean("serviceCFromConfigurationClass", ServiceC.class);
+		//serviceCFromConfigurationClass.methodC();
+
+		ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
+		serviceDFromConfigurationClass.methodD();
+
 	}
 
 }

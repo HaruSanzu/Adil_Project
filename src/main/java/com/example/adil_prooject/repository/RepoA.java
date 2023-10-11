@@ -1,4 +1,4 @@
-package repository;
+package com.example.adil_prooject.repository;
 
 import org.springframework.stereotype.Repository;
 
