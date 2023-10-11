@@ -1,4 +1,4 @@
 package repository;
 
-public interface RepoC {
+public class RepoC {
 }

@@ -1,4 +1,4 @@
 package repository;
 
-public interface RepoB {
+public class RepoB {
 }
