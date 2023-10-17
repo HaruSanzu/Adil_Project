@@ -3,8 +3,9 @@ package com.example.adil_prooject.service;
 import com.example.adil_prooject.repository.RepoB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
+@Primary
 @Service("myCustomBean2")
 public class ServiceB {
     @Autowired
@@ -23,7 +24,7 @@ public class ServiceB {
 
     public void methodB(){
         System.out.println("Attribute:" + attribute + ' ' + "Class ServiceB method called");
-        repoB.getMethodRepoB();
+        repoB.method();
         serviceA.methodServiceA();
     }
 

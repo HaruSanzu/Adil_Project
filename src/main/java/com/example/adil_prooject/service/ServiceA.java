@@ -19,6 +19,6 @@ public class ServiceA {
 
     public void methodServiceA(){
         System.out.println("Attribute" + attribute + ' ' + "Class ServiceA method called");
-        repoA.getMethodRepoA();
+        repoA.method();
     }
 }

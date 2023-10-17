@@ -3,9 +3,10 @@ package com.example.adil_prooject.repository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RepoB {
+public class RepoB implements RepoInt {
 
-    public void getMethodRepoB(){
-        System.out.println("class RepoB method called");
+    @Override
+    public void method() {
+        System.out.println("Repo b method called");
     }
 }

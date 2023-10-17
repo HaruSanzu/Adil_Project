@@ -22,8 +22,10 @@ public class AdilProojectApplication {
 		//ServiceC serviceCFromConfigurationClass = ctx.getBean("serviceCFromConfigurationClass", ServiceC.class);
 		//serviceCFromConfigurationClass.methodC();
 
-		ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
-		serviceDFromConfigurationClass.methodD();
+		//ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
+		//serviceDFromConfigurationClass.methodD();
+		ServiceD serviceD = ctx.getBean("getServiceD", ServiceD.class);
+		serviceD.methodD();
 
 	}
 
