@@ -9,22 +9,34 @@ public class ServiceD {
 @Autowired
     private ServiceC serviceC;
 
+    private String attribute;
+
+    public String getAttribute() {
+        return attribute;
+    }
+
+    public void setAttribute(String value) {
+        this.attribute = attribute;
+    }
+
     public ServiceD(ServiceC serviceC) {
         this.serviceC = serviceC;
     }
 
     public void methodD() {
-        System.out.println("Class methodD method called");
+        System.out.println("Attribute:" + attribute + ' ' + "Class methodD method called");
         serviceC.methodC();
     }
 
     private void init() {
         System.out.println("method called before init");
         Assert.notNull(serviceC, "Service C not null");
+
     }
 
     private void destroy() {
         System.out.println("method called after all");
         serviceC = null;
+
     }
 }
