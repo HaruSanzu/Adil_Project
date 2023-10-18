@@ -5,6 +5,7 @@ import com.example.adil_prooject.repository.RepoC;
 import com.example.adil_prooject.service.ServiceB;
 import com.example.adil_prooject.service.ServiceC;
 import com.example.adil_prooject.service.ServiceD;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @Import(ServiceD.class)
 @PropertySource(value = "classpath:myprops.properties")
+@Slf4j
 public class ConfigurationClass {
     @Value("${value.from.myprops:default}")
     private String value;
@@ -44,4 +46,6 @@ public class ConfigurationClass {
         serviceD.setAttribute(value);
         return serviceD;
     }
+
+
 }

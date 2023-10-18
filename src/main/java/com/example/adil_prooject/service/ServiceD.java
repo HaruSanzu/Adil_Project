@@ -1,13 +1,21 @@
 package com.example.adil_prooject.service;
 
 import com.example.adil_prooject.repository.RepoInt;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 @Service
+@Slf4j
 public class ServiceD {
     private ServiceC serviceC;
 
@@ -42,4 +50,19 @@ public class ServiceD {
         serviceC = null;
 
     }
+
+   @PostConstruct
+    public void postConstruct() {
+        log.info("Initializing bean using 'PostConstruct()'");
+   }
+
+   @PreDestroy
+    public void preDestroy() throws IOException{
+        log.info("@PreDestroy method called");
+        if(serviceC == null){
+            Files.deleteIfExists((Path) serviceC);
+        }
+   }
+
+
 }
