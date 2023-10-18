@@ -17,6 +17,8 @@ public class AdilProojectApplication {
 	public static void main(String[] args) {
 
 
+
+
 		ConfigurableApplicationContext ctx = SpringApplication.run(AdilProojectApplication.class, args);
 		//ServiceB serviceB = ctx.getBean("myCustomBean2", ServiceB.class);
 		//serviceB.methodB();
