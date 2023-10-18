@@ -1,5 +1,6 @@
 package com.example.adil_prooject.repository;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository

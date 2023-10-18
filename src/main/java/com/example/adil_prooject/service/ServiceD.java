@@ -6,7 +6,6 @@ import org.springframework.util.Assert;
 
 @Service
 public class ServiceD {
-@Autowired
     private ServiceC serviceC;
 
     private String attribute;
@@ -16,8 +15,9 @@ public class ServiceD {
     }
 
     public void setAttribute(String value) {
-        this.attribute = attribute;
+        this.attribute = value;
     }
+@Autowired
 
     public ServiceD(ServiceC serviceC) {
         this.serviceC = serviceC;
