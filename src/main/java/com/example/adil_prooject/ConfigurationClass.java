@@ -10,9 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.example.adil_prooject.repository.RepoA;
 import com.example.adil_prooject.service.ServiceA;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 
+
 @Configuration
+@Import(ServiceD.class)
 @PropertySource(value = "classpath:myprops.properties")
 public class ConfigurationClass {
     @Value("${value.from.myprops:default}")

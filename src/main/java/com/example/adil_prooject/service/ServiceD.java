@@ -1,8 +1,11 @@
 package com.example.adil_prooject.service;
 
+import com.example.adil_prooject.repository.RepoInt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+
 
 @Service
 public class ServiceD {
