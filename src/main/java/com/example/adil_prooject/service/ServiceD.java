@@ -12,6 +12,7 @@ import org.springframework.util.Assert;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.zip.DataFormatException;
 
 
 @Service
@@ -37,7 +38,13 @@ public class ServiceD {
     public void methodD() {
         System.out.println("Attribute:" + attribute + ' ' + "Class methodD method called");
         serviceC.methodC();
+        try {
+           System.out.println("Exception Service C:" + serviceC.throwError());
+        } catch (DataFormatException e){
+            log.error("threw");
+        }
     }
+
 
     private void init() {
         System.out.println("method called before init");
@@ -63,6 +70,8 @@ public class ServiceD {
             Files.deleteIfExists((Path) serviceC);
         }
    }
+
+
 
 
 }
