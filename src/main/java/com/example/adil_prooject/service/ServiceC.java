@@ -4,6 +4,8 @@ import com.example.adil_prooject.repository.RepoInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.zip.DataFormatException;
+
 @Component
 public class ServiceC {
     private ServiceB serviceB;
@@ -21,4 +23,9 @@ public class ServiceC {
         serviceB.methodB();
         repoInt.method();
     }
+
+    public String throwError() throws DataFormatException {
+        throw new DataFormatException("new Exception");
+    }
+
 }
