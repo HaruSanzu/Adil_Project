@@ -20,12 +20,13 @@ public class MyAspect {
         log.info("Its run after the result is returned by the method");
     }
 
-    @AfterThrowing("execution(* com.example.adil_prooject.service.ServiceC*.*(..))")
+    @AfterThrowing("execution(* com.example.adil_prooject.service..*(..))")
     public void logAfterThrow(JoinPoint joinPoint){
+
         log.info("It runs after an exception is thrown by the method");
     }
 
-    @After("execution(* com.example.adil_prooject.service..*(..))")
+    @After("execution(* com.example.adil_prooject.serviceC*.*(..))")
     public void logAfterFinally(JoinPoint joinPoint){
         log.info("It is executed after method execution or after an exception is thrown or the result is returned by the method.\n");
     }

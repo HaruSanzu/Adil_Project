@@ -1,5 +1,6 @@
 package com.example.adil_prooject;
 
+import com.example.adil_prooject.databaseService.TeamsService;
 import com.example.adil_prooject.service.ServiceB;
 import com.example.adil_prooject.service.ServiceC;
 import com.example.adil_prooject.service.ServiceD;
@@ -13,7 +14,8 @@ import com.example.adil_prooject.service.ServiceA;
 import java.util.zip.DataFormatException;
 
 
-@SpringBootApplication
+@SpringBootApplication()
+@Slf4j
 public class AdilProojectApplication {
 	public static void main(String[] args){
 
@@ -29,8 +31,12 @@ public class AdilProojectApplication {
 
 		//ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
 		//serviceDFromConfigurationClass.methodD();
-		ServiceD serviceD = ctx.getBean("getServiceD", ServiceD.class);
-		serviceD.methodD();
+		//ServiceD serviceD = ctx.getBean("getServiceD", ServiceD.class);
+		//serviceD.methodD();
+
+		TeamsService teamsService = ctx.getBean("teamsService", TeamsService.class);
+
+		log.info("Teams - " , teamsService.getTeams());
 
 
 
