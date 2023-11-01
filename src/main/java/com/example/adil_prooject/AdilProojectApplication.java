@@ -1,6 +1,7 @@
 package com.example.adil_prooject;
 
 import com.example.adil_prooject.databaseService.TeamsService;
+import com.example.adil_prooject.models.Teams;
 import com.example.adil_prooject.service.ServiceB;
 import com.example.adil_prooject.service.ServiceC;
 import com.example.adil_prooject.service.ServiceD;
@@ -36,7 +37,10 @@ public class AdilProojectApplication {
 
 		TeamsService teamsService = ctx.getBean("teamsService", TeamsService.class);
 
-		log.info("Teams - " , teamsService.getTeams());
+		Teams teams = Teams.builder().id(6).name("MOUZ").team_country("Germany").build();
+		teamsService.addTeam(teams);
+
+		log.info("Teams - {}" , teamsService.getTeams());
 
 
 

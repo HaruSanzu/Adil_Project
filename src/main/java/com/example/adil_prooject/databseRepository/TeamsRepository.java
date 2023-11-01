@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,5 +29,13 @@ public class TeamsRepository {
             teams.add(team);
         }
         return teams;
+    }
+
+    public void addTeam(Teams teams) throws SQLException{
+        PreparedStatement statement = dataSource.getConnection().prepareStatement("INSERT INTO teams(id,name,team_country) VALUES (?,?,?)");
+        statement.setLong(1,teams.getId());
+        statement.setString(2, teams.getName());
+        statement.setString(3, teams.getTeam_country());
+        statement.execute();
     }
 }
