@@ -1,3 +1,5 @@
+drop table if exists teams;
+
 CREATE TABLE teams (
                        id INT PRIMARY KEY,
                        name VARCHAR(255),
