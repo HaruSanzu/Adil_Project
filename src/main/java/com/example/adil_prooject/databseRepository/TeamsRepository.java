@@ -14,8 +14,13 @@ import java.util.List;
 
 @Repository
 public class TeamsRepository {
-    @Autowired
     private DataSource dataSource;
+
+    @Autowired
+
+    public TeamsRepository(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public List<Teams> getTeams() throws SQLException{
         Statement stmt = dataSource.getConnection().createStatement();

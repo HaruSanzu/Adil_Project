@@ -3,6 +3,7 @@ package com.example.adil_prooject;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -16,6 +17,13 @@ public class DataSourceConfiguration {
         dataSourceBuilder.username("Adil");
         dataSourceBuilder.password("");
         return dataSourceBuilder.build();
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.setDataSource(getdataSource());
+        return jdbcTemplate;
     }
 
 }
