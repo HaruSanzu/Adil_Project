@@ -1,4 +1,5 @@
 drop table if exists teams;
+drop table if exists players;
 
 CREATE TABLE teams (
                        id INT PRIMARY KEY,

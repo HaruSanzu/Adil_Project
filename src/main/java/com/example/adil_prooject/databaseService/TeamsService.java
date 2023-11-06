@@ -25,4 +25,12 @@ public class TeamsService {
             return Collections.emptyList();
         }
     }
+
+    public void addTeam(Teams teams){
+        try{
+            teamsRepository.addTeam(teams);
+        } catch (Exception e){
+            log.error("Error");
+        }
+    }
 }
