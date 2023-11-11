@@ -29,4 +29,12 @@ public class SponsorsService {
             return Collections.emptyList();
         }
     }
+
+    public void addSponsor(Sponsors sponsors){
+        try{
+            sponsorRepository.addSponsor(sponsors);
+        } catch (Exception e){
+            log.error("Error");
+        }
+    }
 }

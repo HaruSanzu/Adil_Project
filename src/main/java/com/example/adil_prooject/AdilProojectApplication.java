@@ -4,6 +4,7 @@ import com.example.adil_prooject.databaseService.CoachsService;
 import com.example.adil_prooject.databaseService.PlayersService;
 import com.example.adil_prooject.databaseService.SponsorsService;
 import com.example.adil_prooject.databaseService.TeamsService;
+import com.example.adil_prooject.models.Sponsors;
 import com.example.adil_prooject.models.Teams;
 import com.example.adil_prooject.service.ServiceB;
 import com.example.adil_prooject.service.ServiceC;
@@ -48,6 +49,9 @@ public class AdilProojectApplication {
 
 		Teams teams = Teams.builder().id(6).name("MOUZ").team_country("Germany").build();
 		teamsService.addTeam(teams);
+
+		Sponsors sponsors = Sponsors.builder().id(6).name("Betway").activity("bookmaker company").build();
+		sponsorsService.addSponsor(sponsors);
 
 		log.info("Teams - {}" , teamsService.getTeams());
 
