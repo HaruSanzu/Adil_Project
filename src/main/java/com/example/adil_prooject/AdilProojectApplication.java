@@ -1,6 +1,8 @@
 package com.example.adil_prooject;
 
+import com.example.adil_prooject.databaseService.CoachsService;
 import com.example.adil_prooject.databaseService.PlayersService;
+import com.example.adil_prooject.databaseService.SponsorsService;
 import com.example.adil_prooject.databaseService.TeamsService;
 import com.example.adil_prooject.models.Teams;
 import com.example.adil_prooject.service.ServiceB;
@@ -40,6 +42,10 @@ public class AdilProojectApplication {
 
 		PlayersService playersService = ctx.getBean("playersService", PlayersService.class);
 
+		CoachsService coachsService = ctx.getBean("coachsService", CoachsService.class);
+
+		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
+
 		Teams teams = Teams.builder().id(6).name("MOUZ").team_country("Germany").build();
 		teamsService.addTeam(teams);
 
@@ -47,6 +53,9 @@ public class AdilProojectApplication {
 
 		log.info("Players - {}", playersService.findAll());
 
+		log.info("Coachs - {}", coachsService.findAll());
+
+		log.info("Sponsor - {}", sponsorsService.getSponsors());
 
 
 	}
