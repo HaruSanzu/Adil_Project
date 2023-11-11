@@ -1,26 +1,24 @@
 package com.example.adil_prooject.databseRepository;
 
-import com.example.adil_prooject.models.Players;
+import com.example.adil_prooject.models.Coachs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
-public class PlayerRepository {
+public class CoachRepository {
     private JdbcTemplate jdbcTemplate;
+
     @Autowired
 
-    public PlayerRepository(JdbcTemplate jdbcTemplate) {
+    public CoachRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Players> findAll(){
-        return jdbcTemplate.query("SELECT * FROM players", new BeanPropertyRowMapper<>(Players.class));
+    public List<Coachs> findAll(){
+        return jdbcTemplate.query("SELECT * FROM coachs", new BeanPropertyRowMapper<>(Coachs.class));
     }
-
-   // public void addPlayer(Players players){
-      //  return jdbcTemplate.query("");
-   // }
 }
