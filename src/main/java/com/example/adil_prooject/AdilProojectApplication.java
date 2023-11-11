@@ -61,6 +61,7 @@ public class AdilProojectApplication {
 
 		log.info("Sponsor - {}", sponsorsService.getSponsors());
 
+		log.info("Player with id 2:{}", playersService.findbyId(2));
 
 	}
 

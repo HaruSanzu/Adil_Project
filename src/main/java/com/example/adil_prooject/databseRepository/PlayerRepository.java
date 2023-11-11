@@ -20,6 +20,10 @@ public class PlayerRepository {
         return jdbcTemplate.query("SELECT * FROM players", new BeanPropertyRowMapper<>(Players.class));
     }
 
+    public Players findbyId(Integer id){
+        return jdbcTemplate.queryForObject("SELECT * FROM players WHERE id = ?", new BeanPropertyRowMapper<>(Players.class), id);
+    }
+
    // public void addPlayer(Players players){
       //  return jdbcTemplate.query("");
    // }
