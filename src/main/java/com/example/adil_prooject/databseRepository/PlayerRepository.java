@@ -24,7 +24,15 @@ public class PlayerRepository {
         return jdbcTemplate.queryForObject("SELECT * FROM players WHERE id = ?", new BeanPropertyRowMapper<>(Players.class), id);
     }
 
-   // public void addPlayer(Players players){
-      //  return jdbcTemplate.query("");
-   // }
+    public int addPlayer(Players players){
+       return jdbcTemplate.update("INSERT INTO players (id,nickname,name,surname,country) VALUES (?,?,?,?,?)", players.getId(),players.getNickname(),players.getName(),players.getSurname(),players.getCountry());
+    }
+
+    public int deleteName(String name){
+        return jdbcTemplate.update("DELETE from players where name = ?", name );
+    }
+
+    public Players findbyName(String name){
+        return jdbcTemplate.queryForObject("SELECT * from players Where name = ?", new BeanPropertyRowMapper<>(Players.class), name);
+    }
 }
