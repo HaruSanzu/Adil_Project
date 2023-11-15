@@ -69,11 +69,15 @@ public class AdilProojectApplication {
 
 		log.info("Teams - {}" , teamsService.getTeams());
 
+		log.info("Teams with id 4:{}", teamsService.findById(4));
+
 		log.info("Players - {}", playersService.findAll());
 
 		log.info("Coachs - {}", coachsService.findAll());
 
 		log.info("Sponsor - {}", sponsorsService.getSponsors());
+
+		log.info("Sponsor with id 5:{}", sponsorsService.findById(5));
 
 		log.info("Player with id 2:{}", playersService.findbyId(2));
 

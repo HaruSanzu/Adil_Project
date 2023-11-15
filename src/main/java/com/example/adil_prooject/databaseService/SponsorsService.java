@@ -37,4 +37,13 @@ public class SponsorsService {
             log.error("Error");
         }
     }
+
+    public Sponsors findById(long id){
+        try{
+            return sponsorRepository.findById(id);
+        } catch (Exception e){
+            log.error("id error");
+            return new Sponsors();
+        }
+    }
 }

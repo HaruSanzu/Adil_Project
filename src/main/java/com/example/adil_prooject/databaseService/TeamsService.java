@@ -33,4 +33,13 @@ public class TeamsService {
             log.error("Error");
         }
     }
+
+    public Teams findById(long id){
+        try{
+            return teamsRepository.findById(id);
+        } catch (Exception e) {
+            log.error("id error");
+            return (Teams) Collections.emptyList();
+        }
+    }
 }
