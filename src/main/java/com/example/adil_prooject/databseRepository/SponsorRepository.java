@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,5 +35,13 @@ public class SponsorRepository {
             sponsors.add(sponsor);
         }
         return sponsors;
+    }
+
+    public void addSponsor(Sponsors sponsors) throws SQLException{
+        PreparedStatement statement = dataSource.getConnection().prepareStatement("INSERT INTO sponsors(id,name,activity) VALUES (?,?,?) ");
+        statement.setLong(1, sponsors.getId());
+        statement.setString(2,sponsors.getName());
+        statement.setString(3,sponsors.getActivity());
+        statement.execute();
     }
 }

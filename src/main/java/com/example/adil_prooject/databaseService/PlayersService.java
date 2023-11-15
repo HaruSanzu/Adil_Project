@@ -21,4 +21,20 @@ public class PlayersService {
     public List<Players> findAll(){
         return playerRepository.findAll();
     }
+
+    public Players findbyId(Integer id){
+        return playerRepository.findbyId(id);
+    }
+
+    public int addPlayer(Players players){
+       return playerRepository.addPlayer(players);
+    }
+
+    public int deleteName(String name){
+        return playerRepository.deleteName(name);
+    }
+
+    public Players findByName(String name){
+        return playerRepository.findbyName(name);
+    }
 }
