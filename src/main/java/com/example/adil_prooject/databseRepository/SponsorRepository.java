@@ -44,4 +44,25 @@ public class SponsorRepository {
         statement.setString(3,sponsors.getActivity());
         statement.execute();
     }
+
+    public void delete(long id) throws SQLException{
+        PreparedStatement statement = dataSource.getConnection().prepareStatement("DELETE from sponsors where id = ?");
+        statement.setLong(1, id);
+        statement.execute();
+    }
+
+    public Sponsors findById(long findId) throws SQLException {
+        Statement stmt = dataSource.getConnection().createStatement();
+        ResultSet result = stmt.executeQuery("SELECT * from sponsors");
+        List<Sponsors> sponsors = new ArrayList<>();
+        while (result.next()) {
+            long id = result.getLong("id");
+            String name = result.getString("name");
+            String activity = result.getString("activity");
+            Sponsors sponsor = Sponsors.builder().id(id).name(name).activity(activity).build();
+            if (id == findId) return sponsor;
+        }
+        return new Sponsors();
+    }
 }
+

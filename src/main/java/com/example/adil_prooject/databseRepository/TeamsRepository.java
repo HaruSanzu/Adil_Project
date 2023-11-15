@@ -43,4 +43,25 @@ public class TeamsRepository {
         statement.setString(3, teams.getTeam_country());
         statement.execute();
     }
+
+    public void delete(long id) throws SQLException{
+        PreparedStatement statement = dataSource.getConnection().prepareStatement("DELETE from teams where id = ?");
+        statement.setLong(1, id);
+        statement.execute();
+    }
+
+
+    public Teams findById(long findId) throws SQLException {
+        Statement stmt = dataSource.getConnection().createStatement();
+        ResultSet result = stmt.executeQuery("SELECT * from teams");
+        List<Teams> teams = new ArrayList<>();
+        while (result.next()) {
+            long id = result.getLong("id");
+            String name = result.getString("name");
+            String team_country = result.getString("team_country");
+            Teams team = Teams.builder().id(id).name(name).team_country(team_country).build();
+            if (id == findId) return team;
+        }
+        return new Teams();
+    }
 }
