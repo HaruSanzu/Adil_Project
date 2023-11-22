@@ -21,20 +21,12 @@ public class SponsorsService {
         this.sponsorRepository = sponsorRepository;
     }
 
-    public List<Sponsors> getSponsors(){
-        try{
-            return sponsorRepository.getSponsors();
-        } catch (SQLException e) {
-            log.error("ERROR");
-            return Collections.emptyList();
-        }
+    public Sponsors findSponsorsById(long id){
+        return sponsorRepository.findSponsorsById(id);
     }
 
-    public void addSponsor(Sponsors sponsors){
-        try{
-            sponsorRepository.addSponsor(sponsors);
-        } catch (Exception e){
-            log.error("Error");
-        }
+    public Sponsors findSponsorsByNameContainingIgnoreCase(String name){
+        return sponsorRepository.findSponsorsByNameContainingIgnoreCase(name);
     }
+
 }
