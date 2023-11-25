@@ -24,7 +24,7 @@ public class CoachsService {
        return  coachRepository.findCoachsById(id);
     }
 
-    public Coachs findCoachsByCountry(String country){
+   public Coachs findCoachsByCountry(String country){
         return coachRepository.findCoachsByCountry(country);
-    }
+   }
 }

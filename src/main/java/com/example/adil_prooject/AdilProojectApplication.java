@@ -41,7 +41,6 @@ public class AdilProojectApplication {
 
 		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
 
-		log.info("All players:{}", playersService.list());
 
 		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
 
@@ -49,7 +48,11 @@ public class AdilProojectApplication {
 
 		log.info("findCoachsById:{}", coachsService.findCoachsById(3));
 
-		log.info("findCoachsByCountry:{}",coachsService.findCoachsByCountry("Denmark"));
+		//log.info("findCoachsByCountry:{}", coachsService.findCoachsByCountry("Russia"));
+
+		log.info("findAllPlayersNative:{}", playersService.findAllPlayersNative());
+
+		log.info("findPlayersByNickname:{}", playersService.findPlayersByNickname("B1t"));
 	}
 
 }
