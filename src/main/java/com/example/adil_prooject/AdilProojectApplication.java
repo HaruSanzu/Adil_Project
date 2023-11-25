@@ -49,45 +49,12 @@ public class AdilProojectApplication {
 
 		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
 
-		Teams teams = Teams.builder().id(6).name("MOUZ").team_country("Germany").build();
-		teamsService.addTeam(teams);
+		log.info("All players:{}", playersService.list());
 
-		Sponsors sponsors = Sponsors.builder().id(6).name("Betway").activity("bookmaker company").build();
-		sponsorsService.addSponsor(sponsors);
+		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
 
-		Players players = Players.builder().id(6).nickname("Karrigan").name("Finn").surname("Anderson").country("Denmark").build();
-
-
-		Coachs coachs = Coachs.builder().id(6).nickname("B1ad3").name("Andrey").surname("Gorodenskiy").country("Ukraine").team("NaVi").build();
-
-		coachsService.addCoach(coachs);
-
-
-		playersService.addPlayer(players);
-
-		playersService.deleteName("Finn");
-
-		log.info("Teams - {}" , teamsService.getTeams());
-
-		log.info("Teams with id 4:{}", teamsService.findById(4));
-
-		log.info("Players - {}", playersService.findAll());
-
-		log.info("Coachs - {}", coachsService.findAll());
-
-		log.info("Sponsor - {}", sponsorsService.getSponsors());
-
-		log.info("Sponsor with id 5:{}", sponsorsService.findById(5));
-
-		log.info("Player with id 2:{}", playersService.findbyId(2));
-
-		log.info("Player with name Russel:{}", playersService.findByName("Russel"));
-
-		log.info("Coach with id 3:{}", coachsService.findbyId(3));
-
-		log.info("Coach with name Konstantin:{}", coachsService.findByName("Konstantin"));
-
-
+		log.info("findPlayersById:{}", playersService.findPlayersById(4));
 	}
 
 }
+

@@ -18,23 +18,16 @@ public class PlayersService {
         this.playerRepository = playerRepository;
     }
 
-    public List<Players> findAll(){
+   public List<Players> list(){
         return playerRepository.findAll();
     }
 
-    public Players findbyId(Integer id){
-        return playerRepository.findbyId(id);
+    public Players findPlayersByNameContainingIgnoreCase(String name){
+        return playerRepository.findPlayersByNameContainingIgnoreCase(name);
     }
 
-    public int addPlayer(Players players){
-       return playerRepository.addPlayer(players);
-    }
-
-    public int deleteName(String name){
-        return playerRepository.deleteName(name);
-    }
-
-    public Players findByName(String name){
-        return playerRepository.findbyName(name);
+    public Players findPlayersById(long id){
+        return playerRepository.findPlayersById(id);
     }
 }
+
