@@ -17,29 +17,5 @@ public class TeamsService {
     public TeamsService(TeamsRepository teamsRepository) {
         this.teamsRepository = teamsRepository;
     }
-    public List<Teams> getTeams(){
-        try{
-            return teamsRepository.getTeams();
-        } catch (SQLException e) {
-            log.error("ERROR");
-            return Collections.emptyList();
-        }
-    }
 
-    public void addTeam(Teams teams){
-        try{
-            teamsRepository.addTeam(teams);
-        } catch (Exception e){
-            log.error("Error");
-        }
-    }
-
-    public Teams findById(long id){
-        try{
-            return teamsRepository.findById(id);
-        } catch (Exception e) {
-            log.error("id error");
-            return (Teams) Collections.emptyList();
-        }
-    }
 }

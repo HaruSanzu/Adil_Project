@@ -4,19 +4,11 @@ import com.example.adil_prooject.databaseService.CoachsService;
 import com.example.adil_prooject.databaseService.PlayersService;
 import com.example.adil_prooject.databaseService.SponsorsService;
 import com.example.adil_prooject.databaseService.TeamsService;
-import com.example.adil_prooject.models.Coachs;
-import com.example.adil_prooject.models.Players;
-import com.example.adil_prooject.models.Sponsors;
-import com.example.adil_prooject.models.Teams;
-import com.example.adil_prooject.service.ServiceB;
-import com.example.adil_prooject.service.ServiceC;
-import com.example.adil_prooject.service.ServiceD;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import com.example.adil_prooject.service.ServiceA;
 
 import java.util.zip.DataFormatException;
 
@@ -54,6 +46,10 @@ public class AdilProojectApplication {
 		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
 
 		log.info("findPlayersById:{}", playersService.findPlayersById(4));
+
+		log.info("findCoachsById:{}", coachsService.findCoachsById(3));
+
+		log.info("findCoachsByCountry:{}",coachsService.findCoachsByCountry("Denmark"));
 	}
 
 }
