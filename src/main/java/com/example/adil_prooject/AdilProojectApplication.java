@@ -8,15 +8,12 @@ import com.example.adil_prooject.models.Coachs;
 import com.example.adil_prooject.models.Players;
 import com.example.adil_prooject.models.Sponsors;
 import com.example.adil_prooject.models.Teams;
-import com.example.adil_prooject.service.ServiceB;
-import com.example.adil_prooject.service.ServiceC;
-import com.example.adil_prooject.service.ServiceD;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import com.example.adil_prooject.service.ServiceA;
+
 
 import java.util.zip.DataFormatException;
 
@@ -30,16 +27,6 @@ public class AdilProojectApplication {
 
 
 		ConfigurableApplicationContext ctx = SpringApplication.run(AdilProojectApplication.class, args);
-		//ServiceB serviceB = ctx.getBean("myCustomBean2", ServiceB.class);
-		//serviceB.methodB();
-
-		//ServiceC serviceCFromConfigurationClass = ctx.getBean("serviceCFromConfigurationClass", ServiceC.class);
-		//serviceCFromConfigurationClass.methodC();
-
-		//ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
-		//serviceDFromConfigurationClass.methodD();
-		//ServiceD serviceD = ctx.getBean("getServiceD", ServiceD.class);
-		//serviceD.methodD();
 
 		TeamsService teamsService = ctx.getBean("teamsService", TeamsService.class);
 
@@ -49,43 +36,18 @@ public class AdilProojectApplication {
 
 		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
 
-		Teams teams = Teams.builder().id(6).name("MOUZ").team_country("Germany").build();
-		teamsService.addTeam(teams);
 
-		Sponsors sponsors = Sponsors.builder().id(6).name("Betway").activity("bookmaker company").build();
-		sponsorsService.addSponsor(sponsors);
+		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
 
-		Players players = Players.builder().id(6).nickname("Karrigan").name("Finn").surname("Anderson").country("Denmark").build();
+		log.info("findPlayersById:{}", playersService.findPlayersById(4));
 
+		log.info("findCoachsById:{}", coachsService.findCoachsById(3));
 
-		Coachs coachs = Coachs.builder().id(6).nickname("B1ad3").name("Andrey").surname("Gorodenskiy").country("Ukraine").team("NaVi").build();
+		log.info("findCoachsByCountry:{}", coachsService.findCoachsByCountry("Denmark"));
 
-		coachsService.addCoach(coachs);
+		log.info("findAllPlayersNative:{}", playersService.findAllPlayersNative());
 
-
-		playersService.addPlayer(players);
-
-		playersService.deleteName("Finn");
-
-		log.info("Teams - {}" , teamsService.getTeams());
-
-		log.info("Teams with id 4:{}", teamsService.findById(4));
-
-		log.info("Players - {}", playersService.findAll());
-
-		log.info("Coachs - {}", coachsService.findAll());
-
-		log.info("Sponsor - {}", sponsorsService.getSponsors());
-
-		log.info("Sponsor with id 5:{}", sponsorsService.findById(5));
-
-		log.info("Player with id 2:{}", playersService.findbyId(2));
-
-		log.info("Player with name Russel:{}", playersService.findByName("Russel"));
-
-		log.info("Coach with id 3:{}", coachsService.findbyId(3));
-
-		log.info("Coach with name Konstantin:{}", coachsService.findByName("Konstantin"));
+		log.info("findPlayersByNickname:{}", playersService.findPlayersByNickname("B1t"));
 
 
 	}

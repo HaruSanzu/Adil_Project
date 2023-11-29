@@ -2,37 +2,24 @@ package com.example.adil_prooject.databseRepository;
 
 import com.example.adil_prooject.models.Players;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public class PlayerRepository {
-    private JdbcTemplate jdbcTemplate;
-    @Autowired
+public interface PlayerRepository extends JpaRepository<Players, Long> {
 
-    public PlayerRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    Players findPlayersByNameContainingIgnoreCase(String name);
 
-    public List<Players> findAll(){
-        return jdbcTemplate.query("SELECT * FROM players", new BeanPropertyRowMapper<>(Players.class));
-    }
+    Players findPlayersById(long id);
 
-    public Players findbyId(Integer id){
-        return jdbcTemplate.queryForObject("SELECT * FROM players WHERE id = ?", new BeanPropertyRowMapper<>(Players.class), id);
-    }
+    @Query(value = "select * from Players p", nativeQuery = true)
+    List<Players> findAllPlayersNative();
 
-    public int addPlayer(Players players){
-       return jdbcTemplate.update("INSERT INTO players (id,nickname,name,surname,country) VALUES (?,?,?,?,?)", players.getId(),players.getNickname(),players.getName(),players.getSurname(),players.getCountry());
-    }
-
-    public int deleteName(String name){
-        return jdbcTemplate.update("DELETE from players where name = ?", name );
-    }
-
-    public Players findbyName(String name){
-        return jdbcTemplate.queryForObject("SELECT * from players Where name = ?", new BeanPropertyRowMapper<>(Players.class), name);
-    }
+    @Query("SELECT p from Players p where p.nickname = :nickname")
+    Players findPlayersByNickname(@Param("nickname") String nickname);
 }
