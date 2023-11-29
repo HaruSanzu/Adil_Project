@@ -18,7 +18,7 @@ public class PlayersService {
         this.playerRepository = playerRepository;
     }
 
-    public List<Players> list(){
+   public List<Players> list(){
         return playerRepository.findAll();
     }
 
@@ -38,3 +38,4 @@ public class PlayersService {
         return playerRepository.findPlayersByNickname(nickname);
     }
 }
+

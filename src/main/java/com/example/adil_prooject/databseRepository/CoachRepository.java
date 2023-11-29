@@ -14,9 +14,9 @@ import java.util.List;
 
 @Repository
 public interface CoachRepository extends JpaRepository<Coachs, Long> {
-    Coachs findCoachsById(long id);
+   Coachs findCoachsById(long id);
 
 
-    @Query(value = "SELECT * from Coachs c WHERE c.country = :country", nativeQuery = true)
-    Coachs findCoachsByCountry(@Param("country") String country);
+   @Query(value = "SELECT * from Coachs c WHERE c.country = :country", nativeQuery = true)
+   Coachs findCoachsByCountry(@Param("country") String country);
 }

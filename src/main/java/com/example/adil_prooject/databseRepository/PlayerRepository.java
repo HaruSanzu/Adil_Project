@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface PlayerRepository extends JpaRepository<Players, Long> {
+public interface PlayerRepository extends JpaRepository<Players,Long> {
 
     Players findPlayersByNameContainingIgnoreCase(String name);
 
@@ -23,3 +23,4 @@ public interface PlayerRepository extends JpaRepository<Players, Long> {
     @Query("SELECT p from Players p where p.nickname = :nickname")
     Players findPlayersByNickname(@Param("nickname") String nickname);
 }
+

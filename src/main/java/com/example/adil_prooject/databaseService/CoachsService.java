@@ -21,10 +21,10 @@ public class CoachsService {
     }
 
     public Coachs findCoachsById(long id){
-        return  coachRepository.findCoachsById(id);
+       return  coachRepository.findCoachsById(id);
     }
 
-    public Coachs findCoachsByCountry(String country){
+   public Coachs findCoachsByCountry(String country){
         return coachRepository.findCoachsByCountry(country);
-    }
+   }
 }

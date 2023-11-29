@@ -21,5 +21,4 @@ public class SponsorsService {
         this.sponsorRepository = sponsorRepository;
     }
 
-
 }
