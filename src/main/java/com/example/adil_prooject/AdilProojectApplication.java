@@ -49,6 +49,12 @@ public class AdilProojectApplication {
 
 		log.info("findPlayersByNickname:{}", playersService.findPlayersByNickname("B1t"));
 
+		log.info("findCoachsByNicknameEndingWithIgnoreCase:{}", coachsService.findCoachsByNicknameEndingWithIgnoreCase("nic"));
+
+		log.info("updateTeamById:{}", coachsService.updateTeamById(2, "Virtus Pro"));
+
+		log.info("findCoachsById:{}", coachsService.findCoachsById(2));
+
 
 	}
 

@@ -27,4 +27,12 @@ public class CoachsService {
    public Coachs findCoachsByCountry(String country){
         return coachRepository.findCoachsByCountry(country);
    }
+
+   public Coachs findCoachsByNicknameEndingWithIgnoreCase(String nickname){
+        return coachRepository.findCoachsByNicknameEndingWithIgnoreCase(nickname);
+   }
+
+   public Integer updateTeamById(long id, String team){
+        return coachRepository.updateTeamById(id, team);
+   }
 }
