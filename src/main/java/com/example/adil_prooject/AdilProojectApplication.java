@@ -8,6 +8,7 @@ import com.example.adil_prooject.models.Coachs;
 import com.example.adil_prooject.models.Players;
 import com.example.adil_prooject.models.Sponsors;
 import com.example.adil_prooject.models.Teams;
+import com.example.adil_prooject.prac7.IdJob;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
+import java.sql.Connection;
 import java.util.zip.DataFormatException;
 
 
@@ -22,7 +24,6 @@ import java.util.zip.DataFormatException;
 @Slf4j
 public class AdilProojectApplication {
 	public static void main(String[] args){
-
 
 
 
@@ -35,6 +36,11 @@ public class AdilProojectApplication {
 		CoachsService coachsService = ctx.getBean("coachsService", CoachsService.class);
 
 		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
+
+		Connection connection;
+
+		//Thread thread = new Thread(new IdJob(connection));
+
 
 
 		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
@@ -54,6 +60,8 @@ public class AdilProojectApplication {
 		log.info("updateTeamById:{}", coachsService.updateTeamById(2, "Virtus Pro"));
 
 		log.info("findCoachsById:{}", coachsService.findCoachsById(2));
+
+
 
 
 	}
