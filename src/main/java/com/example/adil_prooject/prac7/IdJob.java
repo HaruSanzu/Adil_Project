@@ -10,6 +10,6 @@ public class IdJob implements Runnable {
 
     @Override
     public void run() {
-        //Ne pridumal poka chto
+        //Golova bolit Ne pridumal poka chto
     }
 }
