@@ -39,27 +39,12 @@ public class AdilProojectApplication {
 
 		Connection connection;
 
-		//Thread thread = new Thread(new IdJob(connection));
+		Thread thread = new Thread(new IdJob(playersService));
+
+		thread.start();
 
 
 
-		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
-
-		log.info("findPlayersById:{}", playersService.findPlayersById(4));
-
-		log.info("findCoachsById:{}", coachsService.findCoachsById(3));
-
-		log.info("findCoachsByCountry:{}", coachsService.findCoachsByCountry("Denmark"));
-
-		log.info("findAllPlayersNative:{}", playersService.findAllPlayersNative());
-
-		log.info("findPlayersByNickname:{}", playersService.findPlayersByNickname("B1t"));
-
-		log.info("findCoachsByNicknameEndingWithIgnoreCase:{}", coachsService.findCoachsByNicknameEndingWithIgnoreCase("nic"));
-
-		log.info("updateTeamById:{}", coachsService.updateTeamById(2, "Virtus Pro"));
-
-		log.info("findCoachsById:{}", coachsService.findCoachsById(2));
 
 
 
