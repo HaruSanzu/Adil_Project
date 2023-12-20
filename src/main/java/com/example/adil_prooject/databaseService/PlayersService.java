@@ -29,5 +29,13 @@ public class PlayersService {
     public Players findPlayersById(long id){
         return playerRepository.findPlayersById(id);
     }
+
+    public List<Players> findAllPlayersNative(){
+        return playerRepository.findAllPlayersNative();
+    }
+
+    public Players findPlayersByNickname(String nickname){
+        return playerRepository.findPlayersByNickname(nickname);
+    }
 }
 

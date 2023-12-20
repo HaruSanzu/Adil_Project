@@ -8,16 +8,15 @@ import com.example.adil_prooject.models.Coachs;
 import com.example.adil_prooject.models.Players;
 import com.example.adil_prooject.models.Sponsors;
 import com.example.adil_prooject.models.Teams;
-import com.example.adil_prooject.service.ServiceB;
-import com.example.adil_prooject.service.ServiceC;
-import com.example.adil_prooject.service.ServiceD;
+import com.example.adil_prooject.prac7.IdJob;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import com.example.adil_prooject.service.ServiceA;
 
+
+import java.sql.Connection;
 import java.util.zip.DataFormatException;
 
 
@@ -28,18 +27,7 @@ public class AdilProojectApplication {
 
 
 
-
 		ConfigurableApplicationContext ctx = SpringApplication.run(AdilProojectApplication.class, args);
-		//ServiceB serviceB = ctx.getBean("myCustomBean2", ServiceB.class);
-		//serviceB.methodB();
-
-		//ServiceC serviceCFromConfigurationClass = ctx.getBean("serviceCFromConfigurationClass", ServiceC.class);
-		//serviceCFromConfigurationClass.methodC();
-
-		//ServiceD serviceDFromConfigurationClass = ctx.getBean("serviceDFromConfigurationClass", ServiceD.class);
-		//serviceDFromConfigurationClass.methodD();
-		//ServiceD serviceD = ctx.getBean("getServiceD", ServiceD.class);
-		//serviceD.methodD();
 
 		TeamsService teamsService = ctx.getBean("teamsService", TeamsService.class);
 
@@ -49,12 +37,18 @@ public class AdilProojectApplication {
 
 		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
 
-		log.info("All players:{}", playersService.list());
+		Connection connection;
 
-		log.info("findPlayersByNameContainingIgnoreCase:{}", playersService.findPlayersByNameContainingIgnoreCase("Rus"));
+		Thread thread = new Thread(new IdJob(playersService));
 
-		log.info("findPlayersById:{}", playersService.findPlayersById(4));
+		thread.start();
+
+
+
+
+
+
+
 	}
 
 }
-

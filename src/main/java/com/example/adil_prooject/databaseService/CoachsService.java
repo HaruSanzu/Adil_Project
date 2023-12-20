@@ -20,23 +20,19 @@ public class CoachsService {
         this.coachRepository = coachRepository;
     }
 
-    public List<Coachs> findAll(){
-        return coachRepository.findAll();
+    public Coachs findCoachsById(long id){
+       return  coachRepository.findCoachsById(id);
     }
 
-    public Coachs findbyId(Integer id){
-        return coachRepository.findbyId(id);
-    }
+   public Coachs findCoachsByCountry(String country){
+        return coachRepository.findCoachsByCountry(country);
+   }
 
-    public int addCoach(Coachs coachs){
-        return coachRepository.addCoach(coachs);
-    }
+   public Coachs findCoachsByNicknameEndingWithIgnoreCase(String nickname){
+        return coachRepository.findCoachsByNicknameEndingWithIgnoreCase(nickname);
+   }
 
-    public int deleteName(String name){
-        return coachRepository.deleteName(name);
-    }
-
-    public Coachs findByName(String name){
-        return coachRepository.findbyName(name);
-    }
+   public Integer updateTeamById(long id, String team){
+        return coachRepository.updateTeamById(id, team);
+   }
 }

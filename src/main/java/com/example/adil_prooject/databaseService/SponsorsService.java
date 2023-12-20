@@ -21,29 +21,4 @@ public class SponsorsService {
         this.sponsorRepository = sponsorRepository;
     }
 
-    public List<Sponsors> getSponsors(){
-        try{
-            return sponsorRepository.getSponsors();
-        } catch (SQLException e) {
-            log.error("ERROR");
-            return Collections.emptyList();
-        }
-    }
-
-    public void addSponsor(Sponsors sponsors){
-        try{
-            sponsorRepository.addSponsor(sponsors);
-        } catch (Exception e){
-            log.error("Error");
-        }
-    }
-
-    public Sponsors findById(long id){
-        try{
-            return sponsorRepository.findById(id);
-        } catch (Exception e){
-            log.error("id error");
-            return new Sponsors();
-        }
-    }
 }
