@@ -27,4 +27,6 @@ public interface CoachRepository extends JpaRepository<Coachs, Long> {
    @Transactional
    @Query("UPDATE Coachs c SET c.team = :team where c.id = :id")
    Integer updateTeamById(@Param("id") long id, @Param("team") String team);
+
+   Coachs deleteCoachsById(long id);
 }

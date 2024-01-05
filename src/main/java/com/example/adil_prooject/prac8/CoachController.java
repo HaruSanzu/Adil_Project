@@ -3,9 +3,7 @@ package com.example.adil_prooject.prac8;
 import com.example.adil_prooject.databaseService.CoachsService;
 import com.example.adil_prooject.models.Coachs;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,18 @@ public class CoachController {
     public List<Coachs> getCoachs(){
         return coachsService.findAllCoachsNative();
     }
+
+    @PutMapping("/{id}/UpdateTeam")
+    public Integer updateCoach(@PathVariable long id,@RequestParam String team){
+        return coachsService.updateTeamById(id, team);
+    }
+
+    @DeleteMapping("/removeCoach/{id}")
+    public Coachs removeCoach(@PathVariable("id") long id){
+        return coachsService.deleteCoachsById(id);
+    }
+
+
+
+
 }

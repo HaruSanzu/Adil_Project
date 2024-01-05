@@ -38,4 +38,8 @@ public class CoachsService {
    public List<Coachs> findAllCoachsNative(){
         return coachRepository.findAllCoachsNative();
    }
+
+   public Coachs deleteCoachsById(long id){
+        return coachRepository.deleteCoachsById(id);
+   }
 }
