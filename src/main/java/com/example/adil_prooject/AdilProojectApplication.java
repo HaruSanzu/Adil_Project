@@ -28,35 +28,7 @@ import java.util.zip.DataFormatException;
 public class AdilProojectApplication {
 	public static void main(String[] args){
 
-
-
-		ConfigurableApplicationContext ctx = SpringApplication.run(AdilProojectApplication.class, args);
-
-		TeamsService teamsService = ctx.getBean("teamsService", TeamsService.class);
-
-		PlayersService playersService = ctx.getBean("playersService", PlayersService.class);
-
-		CoachsService coachsService = ctx.getBean("coachsService", CoachsService.class);
-
-		SponsorsService sponsorsService = ctx.getBean("sponsorsService", SponsorsService.class);
-
-		Connection connection;
-
-		Thread thread = new Thread(new IdJob(playersService));
-
-		thread.start();
-
-		ExecutorService executorService = Executors.newFixedThreadPool(10);
-		executorService.submit(new AnJob(coachsService));
-
-
-
-
-
-
-
-
-
+		SpringApplication.run(AdilProojectApplication.class, args);
 	}
 
 }
