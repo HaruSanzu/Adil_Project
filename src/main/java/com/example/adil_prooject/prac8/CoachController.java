@@ -3,6 +3,7 @@ package com.example.adil_prooject.prac8;
 import com.example.adil_prooject.databaseService.CoachsService;
 import com.example.adil_prooject.models.Coachs;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +29,9 @@ public class CoachController {
     }
 
     @DeleteMapping("/removeCoach/{id}")
-    public Coachs removeCoach(@PathVariable("id") long id){
-        return coachsService.deleteCoachsById(id);
+    public ResponseEntity<String> removeCoach(@PathVariable("id") Integer id){
+         coachsService.deleteCoachsById(id);
+         return ResponseEntity.ok().body("success removed");
     }
 
 
