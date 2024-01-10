@@ -28,8 +28,14 @@ public class CoachController {
         return coachsService.updateTeamById(id, team);
     }
 
+    @PostMapping("/addCoach")
+    public ResponseEntity<Coachs> addCoach(@RequestBody Coachs coachs){
+       Coachs newCoach =  coachsService.addCoach(coachs.getId(),coachs.getNickname(),coachs.getName(),coachs.getSurname(),coachs.getCountry(),coachs.getTeam());
+        return ResponseEntity.ok(newCoach);
+    }
+
     @DeleteMapping("/removeCoach/{id}")
-    public ResponseEntity<String> removeCoach(@PathVariable("id") Integer id){
+    public ResponseEntity<String> removeCoach(@PathVariable("id") long id){
          coachsService.deleteCoachsById(id);
          return ResponseEntity.ok().body("success removed");
     }

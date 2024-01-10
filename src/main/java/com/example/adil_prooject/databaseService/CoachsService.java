@@ -42,4 +42,15 @@ public class CoachsService {
    public Coachs deleteCoachsById(long id){
         return coachRepository.deleteCoachsById(id);
    }
+
+   public Coachs addCoach(long id, String nickname, String name, String surname, String country, String team){
+        Coachs newCoach = new Coachs();
+        newCoach.setId(id);
+        newCoach.setNickname(nickname);
+        newCoach.setName(name);
+        newCoach.setSurname(surname);
+        newCoach.setCountry(country);
+        newCoach.setTeam(team);
+        return coachRepository.save(newCoach);
+   }
 }
